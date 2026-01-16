@@ -1,0 +1,51 @@
+@import '/src/styles/main';
+
+.navList {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.navItem {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 100%;
+}
+
+.icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.iconHome {
+  @extend .icon;
+
+  background: url('/src/img/icons/home-dark-theme.svg') center / cover no-repeat;
+}
+
+.iconHomeLight {
+  background: url('/src/img/icons/home-light-theme.svg') center / cover
+    no-repeat;
+}
+
+.iconArrow {
+  @extend .icon;
+
+  background: url('/src/img/icons/arrow-right-dark.svg') center / cover
+    no-repeat;
+}
+
+.navItemLabel {
+  flex: 1 1 0; // allow item to grow and shrink
+  min-width: 0; // allow flex children to shrink below content size
+}
+
+.label {
+  display: block;
+  width: 100%; // take full width of .navItem
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--secondary-color);
+}

@@ -1,4 +1,58 @@
 import { createRoot } from 'react-dom/client';
-import { App } from './App';
+import { HashRouter as Router } from 'react-router-dom';
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-createRoot(document.getElementById('root') as HTMLElement).render(<App />);
+import {
+  FavouritesPageLazy,
+  HomePageLazy,
+  NotFoundPageLazy,
+  ProductDetailsPageLazy,
+  ProductPageLazy,
+  ShoppingCartPageLazy,
+} from './utils/lazyLoading';
+import './i18n';
+import { App } from './App';
+import { Loader } from './modules/shared/Loader';
+import './styles/main.scss';
+import { ScrollToTop } from './modules/shared/ScrollToTop/ScrollToTop';
+import { GlobalProvider } from './context/store';
+
+createRoot(document.getElementById('root') as HTMLElement).render(
+  <Router>
+    <GlobalProvider>
+      <Suspense fallback={<Loader />}>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<HomePageLazy />} />
+
+            <Route path="phones">
+              <Route index element={<ProductPageLazy />} />
+
+              <Route path=":productId" element={<ProductDetailsPageLazy />} />
+            </Route>
+
+            <Route path="tablets">
+              <Route index element={<ProductPageLazy />} />
+
+              <Route path=":productId" element={<ProductDetailsPageLazy />} />
+            </Route>
+
+            <Route path="accessories">
+              <Route index element={<ProductPageLazy />} />
+
+              <Route path=":productId" element={<ProductDetailsPageLazy />} />
+            </Route>
+
+            <Route path="favourites" element={<FavouritesPageLazy />} />
+
+            <Route path="cart" element={<ShoppingCartPageLazy />} />
+
+            <Route path="*" element={<NotFoundPageLazy />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </GlobalProvider>
+  </Router>,
+);

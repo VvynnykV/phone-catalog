@@ -1,0 +1,34 @@
+@import '/src/styles/main.scss';
+
+.content {
+  padding-block: 24px 56px;
+
+  @include onTablet {
+    padding-bottom: 64px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 80px;
+  }
+}
+
+.breadcrumbs {
+  margin-bottom: 24px;
+
+  @include onTablet {
+    margin-bottom: 40px;
+  }
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.quantity {
+  margin-bottom: 32px;
+  color: var(--secondary-color);
+
+  @include onTablet {
+    margin-bottom: 40px;
+  }
+}

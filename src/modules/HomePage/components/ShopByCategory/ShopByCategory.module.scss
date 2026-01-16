@@ -1,0 +1,54 @@
+@import '/src/styles/main.scss';
+
+.sectionTitle {
+  margin-bottom: 24px;
+}
+
+.categories {
+  @include onTablet {
+    display: flex;
+    column-gap: 16px;
+  }
+
+  /* @include onTablet {
+    @include grid;
+  } */
+}
+
+.link {
+  max-width: 375px;
+  margin: 0 auto 32px;
+
+  @include onHover {
+    @include photoOnHover;
+  }
+
+  @include onTablet {
+    flex: 0 1 33.33%;
+    width: auto;
+    margin: 0;
+  }
+
+  /* @include onTablet {
+    grid-column: span 4;
+    width: auto;
+    margin: 0;
+  }
+
+  @include onDesktop {
+    grid-column: span 8;
+  } */
+
+}
+
+.categoryPhoto {
+  margin-bottom: 24px;
+}
+
+.categoryTitle {
+  margin-bottom: 4px;
+}
+
+.amount {
+  color: var(--secondary-color);
+}
