@@ -11,6 +11,14 @@
 
 ---
 
+## 🔗 Live preview
+
+Open the live demo to explore the finished page:
+
+https://vvynnykv.github.io/phone-catalog/
+
+---
+
 ## 🔗 Design reference
 
 **Figma — Phone Catalog**
@@ -102,8 +110,8 @@ This project is a responsive **e-commerce-style catalog** for consumer electroni
 
 ```bash
 # Clone repository
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+git clone https://vvynnykv.github.io/phone-catalog/.git
+cd phone-catalog
 
 # Install dependencies
 npm install
